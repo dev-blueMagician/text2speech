@@ -1,0 +1,4 @@
+# Desktop validation only; none of these packages runs in the Android app.
+numpy==2.5.4
+praat-parselmouth==0.4.7
+ziglang==0.13.0

@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Ember Reader</string>
+    <string name="sample_text">I’m so glad you’re here. For a moment, I thought I had lost you.\n\nOutside, the rain had stopped. We still had time to begin again.</string>
+</resources>

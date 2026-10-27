@@ -1,0 +1,47 @@
+plugins { id 'com.android.application' }
+
+def noticesDir = layout.buildDirectory.dir('generated/noticeAssets')
+tasks.register('prepareLicenseNotices', Copy) {
+    into noticesDir.map { it.dir('licenses') }
+    from(rootProject.file('LICENSE')) { rename { 'Ember-MIT.txt' } }
+    from(rootProject.file('licenses/Apache-2.0.txt'))
+    from(rootProject.file('.deps/sherpa/LICENSE')) { rename { 'sherpa-onnx-Apache-2.0.txt' } }
+    from(rootProject.file('licenses')) { exclude 'Apache-2.0.txt' }
+    from(rootProject.file('THIRD_PARTY_NOTICES.md'))
+}
+
+android {
+    namespace 'com.ember.reader'
+    compileSdk 35
+    ndkVersion '28.0.13004108'
+
+    defaultConfig {
+        applicationId 'com.ember.reader'
+        minSdk 28
+        targetSdk 35
+        versionCode 7
+        versionName '0.3.2'
+        ndk { abiFilters 'arm64-v8a' }
+        externalNativeBuild {
+            cmake { arguments '-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON', '-DANDROID_STL=c++_static' }
+        }
+        testInstrumentationRunner 'android.test.InstrumentationTestRunner'
+    }
+    externalNativeBuild {
+        cmake { path file('src/main/cpp/CMakeLists.txt'); version '3.22.1' }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    sourceSets { main { assets.srcDir noticesDir } }
+    androidResources { noCompress 'zip' }
+    buildTypes {
+        release { minifyEnabled false }
+    }
+    lint { abortOnError true }
+}
+
+dependencies { testImplementation 'junit:junit:4.13.2' }
+
+tasks.named('preBuild').configure { dependsOn 'prepareLicenseNotices' }

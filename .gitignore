@@ -1,0 +1,13 @@
+.gradle/
+.tools/
+.deps/
+.research/
+.models/
+dist/
+local.properties
+**/build/
+**/.cxx/
+*.iml
+.idea/
+__pycache__/
+app/src/main/assets/fast-voice.zip

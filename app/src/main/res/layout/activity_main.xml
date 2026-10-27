@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root" android:layout_width="match_parent" android:layout_height="match_parent"
+    android:fillViewport="true" android:background="#171A18" android:clipToPadding="false">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="24dp">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical">
+            <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+                android:text="EMBER" android:textColor="#EDBC7D" android:textSize="14sp" android:letterSpacing="0.2" android:textStyle="bold" />
+            <TextView android:id="@+id/app_version" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textColor="#B2BAAF" android:textSize="12sp" />
+        </LinearLayout>
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="28dp"
+            android:text="Words, with feeling." android:fontFamily="serif" android:textSize="34sp" android:textColor="#F3EFE4" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp"
+            android:text="A natural voice for your words.\nYour text stays on your phone." android:textSize="15sp" android:lineSpacingExtra="4dp" android:textColor="#B2BAAF" />
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24dp"
+            android:orientation="horizontal" android:gravity="center_vertical">
+            <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+                android:text="YOUR TEXT" android:textSize="12sp" android:letterSpacing="0.1" android:labelFor="@id/reader_text" android:textColor="#B2BAAF" />
+            <Button android:id="@+id/import_text" android:layout_width="wrap_content" android:layout_height="48dp"
+                android:text="Open .txt" android:textAllCaps="false" android:backgroundTint="#303A30" android:textColor="#F3EFE4" />
+        </LinearLayout>
+        <EditText android:id="@+id/reader_text" android:layout_width="match_parent" android:layout_height="230dp"
+            android:background="@drawable/panel" android:padding="20dp" android:gravity="top|start"
+            android:inputType="textMultiLine|textCapSentences" android:scrollbars="vertical" android:overScrollMode="ifContentScrolls"
+            android:importantForAutofill="noExcludeDescendants"
+            android:textSize="18sp" android:fontFamily="serif" android:lineSpacingExtra="5dp"
+            android:textColor="#F3EFE4" android:textColorHint="#8A9588" android:maxLength="20000"
+            android:hint="Paste a sentence, a story, or something you want to hear…" />
+        <TextView android:id="@+id/character_count" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" android:gravity="end" android:text="0 / 20,000" android:textSize="12sp" android:textColor="#8A9588" />
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp"
+            android:orientation="vertical" android:padding="16dp" android:background="@drawable/panel">
+            <TextView android:id="@+id/speed_label" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp"
+                android:text="Reading speed · 1.0×" android:textColor="#B2BAAF" android:labelFor="@id/speed" />
+            <SeekBar android:id="@+id/speed" android:layout_width="match_parent" android:layout_height="48dp" android:max="8" android:progress="2" android:contentDescription="Reading speed" />
+        </LinearLayout>
+        <TextView android:id="@+id/status" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp"
+            android:text="Ready to read." android:textSize="14sp" android:lineSpacingExtra="3dp" android:textColor="#B2BAAF" android:accessibilityLiveRegion="polite" />
+        <ProgressBar android:id="@+id/progress" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="6dp" android:layout_marginTop="14dp" android:max="100" android:visibility="gone" />
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:orientation="horizontal">
+            <Button android:id="@+id/read" android:layout_width="0dp" android:layout_weight="1" android:layout_height="56dp"
+                android:text="Read aloud" android:textAllCaps="false" android:textSize="16sp" android:textStyle="bold" android:backgroundTint="#EDBC7D" android:textColor="#20251E" />
+            <Button android:id="@+id/pause" android:layout_width="wrap_content" android:layout_height="56dp" android:layout_marginStart="8dp"
+                android:text="Pause" android:textAllCaps="false" android:backgroundTint="#303A30" android:textColor="#F3EFE4" />
+            <Button android:id="@+id/stop" android:layout_width="wrap_content" android:layout_height="56dp" android:layout_marginStart="4dp"
+                android:text="Stop" android:textAllCaps="false" android:backgroundTint="#303A30" android:textColor="#F3EFE4" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
